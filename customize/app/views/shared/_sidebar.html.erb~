@@ -1,0 +1,16 @@
+<h2>検索フォーム</h2>
+<%= form_tag :search_dishes, method: :get do %>
+<p><%= text_field_tag "q", params[:q] , size: 12 %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+<%= form_tag :search_dishes, method: :post do %>
+<% @foodstuffs.each do |food| %>
+<% foodname = food.name %>
+<%= check_box_tag "foodstuffs[]", food.name %><%= food.name %>
+<br>
+<% end %>
+<%= submit_tag "検索" %></p>
+<% end %>
+
+
